@@ -26,12 +26,14 @@ var clozeCard = function (text,cloze){
 	if (!(this instanceof clozeCard)){
 		return new clozeCard(text,cloze);
 		}
+	//backSide is answer
 	this.fulltext = text;
-	this.cloze = cloze;
+	this.backSide = cloze;
+	this.frontSide = this.fulltext.replace(this.backSide, '...');
 } 
 
 
-clozeCard.prototype.partial = function(){return this.fulltext.replace(this.cloze, '...');}
+//clozeCard.prototype.partial = function(){return this.fulltext.replace(this.cloze, '...');}
 
 
 module.exports = clozeCard;
