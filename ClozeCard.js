@@ -22,7 +22,16 @@
 // 	this.cloze = cloze; 
 // };
 
-exports.clozeCard = function clozeCard(front,back){
-	this.text = text;
+var clozeCard = function (text,cloze){
+	if (!(this instanceof clozeCard)){
+		return new clozeCard(text,cloze);
+		}
+	this.fulltext = text;
 	this.cloze = cloze;
-}
+} 
+
+
+clozeCard.prototype.partial = function(){return this.fulltext.replace(this.cloze, '...');}
+
+
+module.exports = clozeCard;

@@ -1,5 +1,3 @@
-
-
 // Create a new file named BasicCard.js:
 
 //     This file should define a Node module that exports a constructor for creating basic flashcards, e.g.: module.exports = BasicCard;
@@ -15,7 +13,13 @@
 // 	this.backSide = back;
 // }
 
-exports.basicCard = function basicCard(front,back){
-	this.frontSide = front;
-	this.backSide = back;
+var basicCard = function(front, back) {
+	
+    if (!(this instanceof basicCard)) {
+        return new basicCard(front, back);
+    }
+    this.frontSide = front;
+    this.backSide = back;
 }
+
+module.exports = basicCard;
